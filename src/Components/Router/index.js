@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import NumbersSequence from '../NumbersSequence/';
-import Home from '../Home/';
-import Movies from '../Movies';
+import NumbersSequence from '../NumbersSequence/view';
+import Home from '../Home/view';
+import Movies from '../Movies/';
 import { BrowserRouter as Router, Switch, Route, Link, } from "react-router-dom";
 import { FIBONACCI, WORDS_REPLACEMENT, ROUTES, FIBONACCI_TITLE, WORDS_TITLE, HOME_TITLE, MOVIES_TITLE } from '../../Utils/constants';
 import './style.css';
