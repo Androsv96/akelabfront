@@ -3,7 +3,7 @@ export const WORDS_REPLACEMENT = "WORDS_REPLACEMENT";
 export const AKE = "AKE";
 export const LAB = "LAB";
 export const AKELAB = "AKELAB";
-export const ROUTES = { HOME: "/", FIBONNACI: "/fibonacci", WORDS_REPLACEMENT: "/multiples", MOVIES: "/movies" }
+export const ROUTES = { HOME: "/akelabfront", FIBONNACI: "/fibonacci", WORDS_REPLACEMENT: "/multiples", MOVIES: "/movies" }
 
 export const API_URL = "https://akelabbackend.herokuapp.com";
 export const METHOD_GET = "GET";
