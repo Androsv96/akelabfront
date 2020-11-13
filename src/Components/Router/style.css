@@ -1,0 +1,27 @@
+#main_wrapper {
+  height: 100%;
+}
+
+#navbar {
+  display: flex;
+  background-color: black;
+  height: 50px;
+  justify-content: center;
+}
+
+#navbar > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 5%;
+  padding: 5px;
+}
+
+#navbar > div > a {
+  color: white;
+  text-decoration: none;
+}
+
+.link_active {
+  background-color: slategrey;
+}
