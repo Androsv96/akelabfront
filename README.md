@@ -1,3 +1,7 @@
+Para visualizar la aplicación funcionado, entrar al siguiente link:
+https://androsv96.github.io/akelabfront/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
