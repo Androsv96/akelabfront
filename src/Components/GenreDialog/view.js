@@ -20,12 +20,12 @@ export default function GenreDialog({ moviesReducer, actionDispatcher }) {
     }
 
     return (
-        <Dialog open={showGenreDialog} onClose={() => actionDispatcher(SET_SHOW_GENRE_DIALOG, { data: false })}>
+        <Dialog open={showGenreDialog} onClose={() => actionDispatcher(SET_SHOW_GENRE_DIALOG, { data: false })} >
             <DialogTitle>Género</DialogTitle>
             <List>
                 {
                     genres.map((val, idx) =>
-                        <ListItem key={idx}>
+                        <ListItem key={idx} >
                             <Checkbox
                                 id={val.name}
                                 checked={genres[idx].checked || false}

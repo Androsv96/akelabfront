@@ -5,10 +5,13 @@ import './style.css';
 import Typography from "@material-ui/core/Typography";
 import YellowStar from '../../Utils/Assets/Icons/Star 3.png';
 import GreyStar from '../../Utils/Assets/Icons/Star 5.png';
+import {
+    MOVIES_ORDER_BY_AGE_NEW_TO_OLD, MOVIES_ORDER_BY_AGE_OLD_TO_NEW, MOVIES_ORDER_BY_CALIFICATION_MIN_TO_MAX, MOVIES_ORDER_BY_CALIFICATION_MAX_TO_MIN
+} from '../../Utils/constants';
 
 export default function MoviesGrid({ moviesReducer }) {
 
-    const { moviesData, movieToFind, genres } = moviesReducer;
+    const { moviesData, movieToFind, genres, moviesOrder } = moviesReducer;
     let { results } = moviesData;
 
     const getMovieGenres = (genresIds) => {
@@ -24,8 +27,17 @@ export default function MoviesGrid({ moviesReducer }) {
 
         let selectedGenres = genres.filter(e => e.checked);
         if (selectedGenres.length > 0) {
-
-            console.log(results)
+            selectedGenres = selectedGenres.map(e => e.id);
+            let tempNewGenres = [];
+            for (let i = 0; i < results.length; i++) {
+                for (let j = 0; j < selectedGenres.length; j++) {
+                    if (results[i].genre_ids.includes(selectedGenres[j])) {
+                        tempNewGenres = tempNewGenres.concat(results[i]);
+                        continue;
+                    }
+                }
+            }
+            results = [...new Set(tempNewGenres)];
         }
 
         if (movieToFind) {
@@ -35,7 +47,34 @@ export default function MoviesGrid({ moviesReducer }) {
 
     }
 
+    const orderMovies = () => {
+        switch (moviesOrder) {
+            case MOVIES_ORDER_BY_AGE_NEW_TO_OLD:
+                results = results.sort((a, b) => (a.release_date > b.release_date) ? -1 : ((b.release_date > a.release_date) ? 1 : 0))
+                break;
+
+            case MOVIES_ORDER_BY_AGE_OLD_TO_NEW:
+                results = results.sort((a, b) => (a.release_date > b.release_date) ? 1 : ((b.release_date > a.release_date) ? - 1 : 0));
+                break;
+
+
+            case MOVIES_ORDER_BY_CALIFICATION_MAX_TO_MIN:
+                results = results.sort((a, b) => (a.vote_average > b.vote_average) ? -1 : ((b.vote_average > a.vote_average) ? 1 : 0))
+                break;
+
+            case MOVIES_ORDER_BY_CALIFICATION_MIN_TO_MAX:
+                results = results.sort((a, b) => (a.vote_average > b.vote_average) ? 1 : ((b.vote_average > a.vote_average) ? - 1 : 0));
+                break;
+
+
+            default:
+                results = results.sort((a, b) => (a.release_date > b.release_date) ? -1 : ((b.release_date > a.release_date) ? 1 : 0))
+                break;
+        }
+    }
+
     filterMovies();
+    orderMovies();
 
     return (
         <Box className="main_wrapper">

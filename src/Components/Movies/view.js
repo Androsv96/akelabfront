@@ -2,6 +2,7 @@ import './style.css'
 import SearchInputContainer from '../SearchInput';
 import GridContainer from '../Grid/';
 import { useEffect } from 'react';
+import RequestFailedContainer from '../RequestFailed/';
 import { GET_ALL_MOVIES_INIT } from '../../Redux/Actions';
 
 export default function Movies({ moviesReducer, actionDispatcher }) {
@@ -22,7 +23,7 @@ export default function Movies({ moviesReducer, actionDispatcher }) {
                         <GridContainer />
                     </>
                     :
-                    "No info"
+                    <RequestFailedContainer />
             }
         </div>
     );

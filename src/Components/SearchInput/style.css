@@ -9,6 +9,7 @@
 }
 
 .icons_wrapper {
+  cursor: pointer;
   display: flex;
   align-items: center;
   margin-left: 2%;
@@ -23,6 +24,7 @@
 }
 
 .orderby_wrapper {
+  cursor: pointer;
   display: flex;
   align-items: center;
   margin-left: 2%;

@@ -18,6 +18,7 @@
   height: 10%;
   width: 100%;
   font-weight: bold;
+  overflow: auto;
 }
 
 .movie_data_container {

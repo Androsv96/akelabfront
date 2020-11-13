@@ -7,6 +7,10 @@ export const ROUTES = { HOME: "/", FIBONNACI: "/fibonacci", WORDS_REPLACEMENT: "
 
 export const API_URL = "https://akelabbackend.herokuapp.com";
 export const METHOD_GET = "GET";
+export const MOVIES_ORDER_BY_AGE_NEW_TO_OLD = "new-old";
+export const MOVIES_ORDER_BY_AGE_OLD_TO_NEW = "old-new";
+export const MOVIES_ORDER_BY_CALIFICATION_MIN_TO_MAX = "min-max";
+export const MOVIES_ORDER_BY_CALIFICATION_MAX_TO_MIN = "max-min";
 
 export const TYPE_VALUE_GREATER_THAN_ZERO = "Ingrese un número mayor a 0";
 export const WRONG_VALUE_TYPED = "No se permiten letras o números menores a 1";

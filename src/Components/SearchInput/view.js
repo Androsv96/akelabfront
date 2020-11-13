@@ -5,12 +5,14 @@ import FilterIcon from '../../Utils/Assets/Icons/Filter Icon.png'
 import OrderByIcon from '../../Utils/Assets/Icons/Arrow Icon.png';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import GenreDialogContainer from '../GenreDialog';
+import OrderByDialogContainer from '../OrderByDialog';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import './style.css';
-import { FILTER_MOVIE_NAME, SET_SHOW_GENRE_DIALOG } from '../../Redux/Actions';
+import { FILTER_MOVIE_NAME, SET_SHOW_GENRE_DIALOG, SET_SHOW_ORDER_BY_DIALOG } from '../../Redux/Actions';
 
 export default function SearchInput({ moviesReducer, actionDispatcher }) {
 
-    const { showGenreDialog } = moviesReducer;
+    const { showGenreDialog, showOrderByDialog } = moviesReducer;
 
     const onTextTyped = (e) => {
         actionDispatcher(FILTER_MOVIE_NAME, { data: e.target.value });
@@ -32,12 +34,13 @@ export default function SearchInput({ moviesReducer, actionDispatcher }) {
                 <img src={FilterIcon} alt="Filter" className="filter_icon" />
             </Box>
 
-            <Box className="orderby_wrapper">
+            <Box className="orderby_wrapper" onClick={() => actionDispatcher(SET_SHOW_ORDER_BY_DIALOG, { data: !showOrderByDialog })}>
                 <Box>Ordenar</Box>
-                <Box><img src={OrderByIcon} alt="OrderBy" className="arrow_icon" /></Box>
+                <Box>{showOrderByDialog ? <ExpandMoreIcon className="arrow_icon"/> : <img src={OrderByIcon} alt="OrderBy" className="arrow_icon" />}</Box>
             </Box>
 
             <GenreDialogContainer />
+            <OrderByDialogContainer />
 
         </Box>
     );

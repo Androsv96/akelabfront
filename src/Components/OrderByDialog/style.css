@@ -1,0 +1,11 @@
+.titles {
+  font-weight: bold !important;
+}
+
+.subtitles {
+  color: grey;
+}
+
+.currentActiveOrder {
+  border-left: 2px solid black !important; 
+}
